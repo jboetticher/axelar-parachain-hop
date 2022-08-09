@@ -1,0 +1,16 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "hardhat": "^2.10.1"
+  },
+  "dependencies": {
+    "@axelar-network/axelar-cgp-solidity": "^4.1.0",
+    "@openzeppelin/contracts": "^4.7.1"
+  },
+  "scripts": {
+    "fantomSend": "npx hardhat run scripts/axelarSend.js --network fantom",
+    "deploy": "npx hardhat run scripts/deploy.js --network moonbase"
+  }
+}
