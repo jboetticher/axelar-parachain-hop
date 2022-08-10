@@ -1,6 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 
-const { privateKey } = require('./secrets.json');
+const { privateKey, moonscanAPIKey } = require('./secrets.json');
 
 module.exports = {
   solidity: "0.8.15",
@@ -33,7 +33,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      moonbaseAlpha: 'TWSXD5HVFDPRIKMW9T9E6VG3TSBWAS7XAM', // Moonbeam Moonscan API Key    
+      moonbaseAlpha: moonscanAPIKey // Moonbeam Moonscan API Key    
     }
   }
 };

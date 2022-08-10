@@ -130,6 +130,8 @@ contract SendCrossChainXToken {
 }
 
 /*
+Input Breakdown (xTokens + sendxUSDCToParachain):
+
                                         04 (pallet), 24 = 36,   05 + number in hex... Does it need PADDING?
 Multilocation X2 memory asset:      [0, ["0x0424", "0x05FD9D0BF45A2947A519A741C4B9E99EB6"]]
 uint256 amount:                     350000
