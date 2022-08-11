@@ -3,6 +3,8 @@ const { getGatewayAddress } = require("./gatewayGasReceiver");
 const ethers = hre.ethers;
 
 /**
+ * npx hardhat run scripts/destDeploy.js --network moonbase
+ * 
  * This script deploys the "ReceiveCrossChainXToken" on Moonbase Alpha.
  * 
  * Remember that Moonbase Alpha is our destination chain, since it must receive aUSDC
@@ -12,7 +14,7 @@ const ethers = hre.ethers;
  */
 async function main() {
   await hre.run('compile');
-  if(hre.network !== 'moonbase') throw new Error("Origin chain must be Moonbase Alpha!");
+  if(hre.network.name !== 'moonbase') throw new Error("Origin chain must be Moonbase Alpha!");
 
   // Gets the gateway for our network
   const gatewayAddress = getGatewayAddress(hre.network.name);
