@@ -9,6 +9,9 @@ const DESTINATION_ADDRESS = '0x87f6Fec8625BaC3efDAF537C3C8058C1a88d9467';
 // Origin address (SendCrossChainXToken) on Fantom (or your EVM of choice)
 const ORIGIN_ADDRESS = '0xc336fe98cce00483c1253f65350D28F8E4fEf1cb';
 
+// Your centrifuge account IN HEX FORMAT
+const CENTRIFUGE_ACCOUNT = '0xc4db7bcb733e117c0b34ac96354b10d47e84a006b9e7e66a229d174e8ff2a063';
+
 
 
 /**
@@ -29,12 +32,23 @@ async function main() {
     "SendCrossChainXToken", 
     ORIGIN_ADDRESS);
 
-  // Send our transaction
-  // TODO: must change for centrifuge & add explanation on what this is
+  /*
+  Sending our cross-chain transaction! But what do all these values mean?
+
+  Asset: Multilocation
+    0 = parent is false (asset is native to the parachain)
+    0x04 = pallet identifier, 0x24 = 36, which is the local asset pallet
+    0x05 = general index identifier, 0xFD9D0BF45A2947A519A741C4B9E99EB6 = xUSDC assetId
+  Amount: 300000, or just 30 cents
+  Destination: Multilocation
+    1 = parent is true (destination is not same parachain)
+    0x00 = parachain identifier, 0x000007EF = 2031, the testnet Centrifuge parachain ID
+    0x01 = polkadot account, CENTRIFUGE_ACCOUNT = the account we're sending to!
+  */
   const tx = await sendContract.sendxUSDCToParachain(
     [0, ["0x0424", "0x05FD9D0BF45A2947A519A741C4B9E99EB6"]],
     300000,
-    [1, ["0x0000000378", "0x030394c0edfcca370b20622721985b577850b0eb7500"]],
+    [1, ["0x00000007EF", "0x01" + CENTRIFUGE_ACCOUNT.slice(2) + "00"]],
     1000000000,
     DESTINATION_ADDRESS,
     { value: 263251366000000 }
