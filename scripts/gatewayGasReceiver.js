@@ -1,3 +1,5 @@
+const { GasToken } = require("@axelar-network/axelarjs-sdk");
+
 // Gets the gateway & gasReceiver address for our network
 const getGatewayAddress = (network) => {
     switch (network) {
@@ -35,6 +37,25 @@ const getUSDCAddress = (network) => {
         default: return '';
     }
 }
+const tokenName = (network) => {
+    switch(network) {
+        case 'ropsten': case 'ethereum': return GasToken.ETH;
+        case 'moonbase': case 'moonbeam': return GasToken.MOONBEAM;
+        case 'mumbai': case 'polygon': case 'matic': return GasToken.MATIC;
+        case 'fuji': case 'avalanche': return GasToken.AVAX;
+        case 'fantom': return GasToken.FTM;
+        default: return network;    
+    }
+}
+const testnetToMainnetChainName = (network) => {
+    switch (network) {
+        case 'ropsten': return 'ethereum';
+        case 'moonbase': return 'moonbeam';
+        case 'mumbai': return 'polygon';
+        case 'fuji': return 'avalanche';
+        default: return network;
+    }
+};
 const gasReceiverAddress = "0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6";
 
-module.exports = { getGatewayAddress, gasReceiverAddress, getWDEVAddress, getUSDCAddress };
+module.exports = { getGatewayAddress, gasReceiverAddress, getWDEVAddress, getUSDCAddress, tokenName, testnetToMainnetChainName };

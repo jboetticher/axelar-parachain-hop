@@ -29,16 +29,6 @@ module.exports = {
       url: 'https://rpc.testnet.fantom.network/',
       chainId: 4002,
       accounts: [privateKey]
-    },
-    aurora: {
-      url: 'https://testnet.aurora.dev/',
-      chainId: 1313161555,
-      accounts: [privateKey]
-    },
-    bnb: {
-      url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
-      chainId: 97,
-      accounts: [privateKey]
     }
   },
   etherscan: {

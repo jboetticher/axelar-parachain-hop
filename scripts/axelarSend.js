@@ -1,5 +1,7 @@
 const hre = require("hardhat");
 const ethers = hre.ethers;
+const {tokenName, testnetToMainnetChainName} = require("./gatewayGasReceiver");
+const { AxelarQueryAPI, Environment, EvmChain } = require("@axelar-network/axelarjs-sdk");
 
 // CONFIGURE YOUR RELEVANT CONSTANTS:
 
@@ -32,6 +34,16 @@ async function main() {
     "SendCrossChainXToken", 
     ORIGIN_ADDRESS);
 
+  // Calculate potential cross-chain gas fee
+  const axlearSDK = new AxelarQueryAPI({ environment: Environment.TESTNET });
+  const estimateGasUsed = 200000;
+  const crossChainGasFee = await axlearSDK.estimateGasFee(
+      testnetToMainnetChainName(hre.network.name),
+      EvmChain.MOONBEAM,
+      tokenName(hre.network.name),
+      estimateGasUsed
+  );
+
   /*
   Sending our cross-chain transaction! But what do all these values mean?
 
@@ -51,7 +63,7 @@ async function main() {
     [1, ["0x00000007EF", "0x01" + CENTRIFUGE_ACCOUNT.slice(2) + "00"]],
     1000000000,
     DESTINATION_ADDRESS,
-    { value: 263251366000000 }
+    { value: crossChainGasFee }
   );
 
   console.log(tx);
