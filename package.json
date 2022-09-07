@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@axelar-network/axelar-cgp-solidity": "^4.1.0",
-    "@axelar-network/axelarjs-sdk": "^0.8.0",
+    "@axelar-network/axelarjs-sdk": "^0.10.0",
     "@openzeppelin/contracts": "^4.7.1"
   },
   "scripts": {
