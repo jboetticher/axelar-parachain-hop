@@ -14,7 +14,7 @@ interface IXC20Wrapper {
 // Moonbase Alpha: 0x87f6Fec8625BaC3efDAF537C3C8058C1a88d9467
 contract ReceiveCrossChainXToken is IAxelarExecutable {
 
-    IXC20Wrapper constant wrapper = IXC20Wrapper(0x7a852C4F4ecc07164365B0def5F37b44B085C558);
+    IXC20Wrapper constant wrapper = IXC20Wrapper(0x798ce91BBfa900B4680904D4d8d560dAf11D7a98);
     IERC20 constant aUSDC = IERC20(0xD1633F7Fb3d716643125d6415d4177bC36b7186b);
     IERC20 constant xUSDC = IERC20(0xffFfFffeFd9d0bf45a2947A519a741c4b9E99EB6);
     Xtokens constant xt = Xtokens(0x0000000000000000000000000000000000000804);
