@@ -33,3 +33,6 @@ Send transaction
 ```
 npx hardhat run scripts/axelarSend.js --network fantom
 ```
+
+## NOTE
+As of a recent update, the hop will not work unless ReceiveCrossChainXToken has at least 1 xUSDC wei left over after the xTokens transaction. This change was inherit to Polkadot, and the Moonbeam team is looking for a solution. In the meantime, an extra step were you send ReceiveCrossChainXToken an xTokens value of at least 1 before starting to send it cross-chain messages. 
