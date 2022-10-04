@@ -64,8 +64,11 @@ contract ReceiveCrossChainXToken is IAxelarExecutable {
         // Sanity 2
         emit xUSDCBalance(xUSDC.balanceOf(address(this)));
 
+        // Must adjust amount due to the quirk explained in the README
+        uint256 adjustedAmnt = xUSDC.balanceOf(address(this)) <= amount ? amount - 1 : amount;
+
         // Send via XTokens precompile
-        try xt.transfer_multiasset(asset, amount, destination, weight) {}
+        try xt.transfer_multiasset(asset, adjustedAmnt, destination, weight) {}
         catch (bytes memory lowLevelData) {
             emit MultiassetError(lowLevelData);
         }

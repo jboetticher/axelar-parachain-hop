@@ -5,8 +5,8 @@ const { AxelarQueryAPI, Environment, EvmChain } = require("@axelar-network/axela
 
 // CONFIGURE YOUR RELEVANT CONSTANTS:
 
-// Destination address (ReceiveCrossChainXToken) on Moonbeam
-const DESTINATION_ADDRESS = '0x87f6Fec8625BaC3efDAF537C3C8058C1a88d9467';
+// Destination address (ReceiveCrossChainXToken) on Moonbase Alpha
+const DESTINATION_ADDRESS = '0x00e91D316a1Ca712123B6D23008Aa3398Bb52901';
 
 // Origin address (SendCrossChainXToken) on Fantom (or your EVM of choice)
 const ORIGIN_ADDRESS = '0xc336fe98cce00483c1253f65350D28F8E4fEf1cb';
