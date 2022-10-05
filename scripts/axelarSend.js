@@ -6,10 +6,10 @@ const { AxelarQueryAPI, Environment, EvmChain } = require("@axelar-network/axela
 // CONFIGURE YOUR RELEVANT CONSTANTS:
 
 // Destination address (ReceiveCrossChainXToken) on Moonbase Alpha
-const DESTINATION_ADDRESS = '0x00e91D316a1Ca712123B6D23008Aa3398Bb52901';
+const DESTINATION_ADDRESS = '0x82dF348fB1367Cf9f7B911568D4A74D0f6F152E8';
 
 // Origin address (SendCrossChainXToken) on Fantom (or your EVM of choice)
-const ORIGIN_ADDRESS = '0xc336fe98cce00483c1253f65350D28F8E4fEf1cb';
+const ORIGIN_ADDRESS = '0x569B2762FAfeD72a8180f463c942a914849c5a97';
 
 // Your centrifuge account IN HEX FORMAT
 const CENTRIFUGE_ACCOUNT = '0xc4db7bcb733e117c0b34ac96354b10d47e84a006b9e7e66a229d174e8ff2a063';
