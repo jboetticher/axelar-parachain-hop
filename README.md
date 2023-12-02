@@ -1,6 +1,6 @@
 # Axelar Parachain Hop
 
-This demo project allows you to transfer aUSDC from one Axelar connected EVM 
+This PoC project allows you to transfer aUSDC from one Axelar connected EVM 
 to a parachain with xUSDC. In this example, we used Fantom -> Moonbase Beta.
 
 ## NOTE
